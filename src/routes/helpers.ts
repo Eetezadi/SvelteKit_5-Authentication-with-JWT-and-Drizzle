@@ -1,4 +1,4 @@
-export const setAuthToken = ({cookies, token}) => {
+function setAuthToken ({cookies, token}) {
   cookies.set('AuthorizationToken', `Bearer ${token}`, {
     httpOnly: true,
     secure: true,
