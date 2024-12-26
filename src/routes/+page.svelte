@@ -1,16 +1,13 @@
 <script lang="ts">
 	let { data } = $props();
+	const user = data.user;
 </script>
-
-<h1>SvelteKit 5 JWT User Auth Demo</h1>
-
+<h2>Main Menu</h2>
 {#if data?.user}
-	<h1>Logged in as user: {data?.user?.userName}</h1>
+	<h3>Logged in as user: {user?.username} ({user?.email})</h3>
 	<form method="POST" action="?/logout">
 		<button type="submit">Log Out</button>
 	</form>
-	<a href="/admin">Admin Dashboard</a>
 {:else}
-	<a href="/login">Login</a>
-	<a href="/register">Register</a>
+Try to access the admin area, register and login. 
 {/if}

@@ -34,11 +34,5 @@ export const handle = async ({ event, resolve }) => {
 			}
 		}
 	}
-
-	const protectedRoutes = ['/admin']; // Add more protected paths as needed
-	if (protectedRoutes.some((route) => event.url.pathname.startsWith(route)) && !event.locals.user) {
-		throw redirect(302, '/'); // Redirect unauthenticated users
-	}
-
 	return await resolve(event);
 };
