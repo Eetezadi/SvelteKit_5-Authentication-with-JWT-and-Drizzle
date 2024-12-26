@@ -1,13 +1,13 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { setAuthToken } from '../setAuthToken';
-import { createUser } from '$lib/server/user';
+import { createUser } from '$lib/server/userManagement';
 
 export const actions = {
 	register: async ({ cookies, request }) => {
 		const formData = Object.fromEntries(await request.formData());
-		const { email, password } = formData;
+		const { username, email, password } = formData;
 
-		const { error, token } = await createUser(email, password);
+		const { error, token } = await createUser(username, email, password);
 
 		if (error) {
 			console.log({ error });
@@ -16,6 +16,6 @@ export const actions = {
 
 		setAuthToken({ cookies, token });
 
-		throw redirect(302, '/user-auth');
+		throw redirect(302, '/');
 	}
 };
