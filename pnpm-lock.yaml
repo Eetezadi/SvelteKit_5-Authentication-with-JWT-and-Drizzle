@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@libsql/client':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.14.0
+        version: 0.14.0
       '@sveltejs/vite-plugin-svelte':
         specifier: ^5.0.3
         version: 5.0.3(svelte@5.16.0)(vite@6.0.6(@types/node@22.10.2))
@@ -18,8 +18,8 @@ importers:
         specifier: ^2.4.3
         version: 2.4.3
       drizzle-orm:
-        specifier: ^0.33.0
-        version: 0.33.0(@libsql/client@0.9.0)
+        specifier: ^0.38.3
+        version: 0.38.3(@libsql/client@0.14.0)
       jsonwebtoken:
         specifier: ^9.0.2
         version: 9.0.2
@@ -30,9 +30,15 @@ importers:
       '@sveltejs/kit':
         specifier: ^2.15.0
         version: 2.15.0(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.16.0)(vite@6.0.6(@types/node@22.10.2)))(svelte@5.16.0)(vite@6.0.6(@types/node@22.10.2))
+      '@types/bcryptjs':
+        specifier: ^2.4.6
+        version: 2.4.6
+      '@types/jsonwebtoken':
+        specifier: ^9.0.7
+        version: 9.0.7
       drizzle-kit:
-        specifier: ^0.22.8
-        version: 0.22.8
+        specifier: ^0.30.1
+        version: 0.30.1
       prettier:
         specifier: ^3.4.2
         version: 3.4.2
@@ -54,6 +60,9 @@ packages:
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
+
+  '@drizzle-team/brocli@0.10.2':
+    resolution: {integrity: sha512-z33Il7l5dKjUgGULTqBsQBQwckHh5AbIuxhdsIxDDiZAzBOrZO6q9ogcWC65kU382AfynTfgNumVcNIjuIua6w==}
 
   '@esbuild-kit/core-utils@3.3.2':
     resolution: {integrity: sha512-sPRAnw9CdSsRmEtnsl2WXWdyquogVpB3yZ3dgwJfe8zrOzTsV7cJvmwrKVa+0ma5BoiGJ+BoqkMvawbayKUsqQ==}
@@ -501,11 +510,11 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@libsql/client@0.9.0':
-    resolution: {integrity: sha512-mT+91wtb8pxK9SWd566D5W2VUCemksUMqICRBtf0WXiS7XzNcQhWyrwYOnVrVmTSze/SCCsNNEKIkCRwk/pr2Q==}
+  '@libsql/client@0.14.0':
+    resolution: {integrity: sha512-/9HEKfn6fwXB5aTEEoMeFh4CtG0ZzbncBb1e++OCdVpgKZ/xyMsIVYXm0w7Pv4RUel803vE6LwniB3PqD72R0Q==}
 
-  '@libsql/core@0.9.0':
-    resolution: {integrity: sha512-rCsS/EC32K8ARjDQJGqauGZmkR6orOOY4I7898PyQ/mmltAkMwRgz5kjEmYRZ42o7mP0ayJfbw28qgv7SRFEgg==}
+  '@libsql/core@0.14.0':
+    resolution: {integrity: sha512-nhbuXf7GP3PSZgdCY2Ecj8vz187ptHlZQ0VRc751oB2C1W8jQUXKKklvt7t1LJiUTQBVJuadF628eUk+3cRi4Q==}
 
   '@libsql/darwin-arm64@0.4.7':
     resolution: {integrity: sha512-yOL742IfWUlUevnI5PdnIT4fryY3LYTdLm56bnY0wXBw7dhFcnjuA7jrH3oSVz2mjZTHujxoITgAE7V6Z+eAbg==}
@@ -517,11 +526,11 @@ packages:
     cpu: [x64]
     os: [darwin]
 
-  '@libsql/hrana-client@0.6.2':
-    resolution: {integrity: sha512-MWxgD7mXLNf9FXXiM0bc90wCjZSpErWKr5mGza7ERy2FJNNMXd7JIOv+DepBA1FQTIfI8TFO4/QDYgaQC0goNw==}
+  '@libsql/hrana-client@0.7.0':
+    resolution: {integrity: sha512-OF8fFQSkbL7vJY9rfuegK1R7sPgQ6kFMkDamiEccNUvieQ+3urzfDFI616oPl8V7T9zRmnTkSjMOImYCAVRVuw==}
 
-  '@libsql/isomorphic-fetch@0.2.5':
-    resolution: {integrity: sha512-8s/B2TClEHms2yb+JGpsVRTPBfy1ih/Pq6h6gvyaNcYnMVJvgQRY7wAa8U2nD0dppbCuDU5evTNMEhrQ17ZKKg==}
+  '@libsql/isomorphic-fetch@0.3.1':
+    resolution: {integrity: sha512-6kK3SUK5Uu56zPq/Las620n5aS9xJq+jMBcNSOmjhNf/MUvdyji4vrMTqD7ptY7/4/CAVEAYDeotUz60LNQHtw==}
     engines: {node: '>=18.0.0'}
 
   '@libsql/isomorphic-ws@0.1.5':
@@ -682,11 +691,17 @@ packages:
       svelte: ^5.0.0
       vite: ^6.0.0
 
+  '@types/bcryptjs@2.4.6':
+    resolution: {integrity: sha512-9xlo6R2qDs5uixm0bcIqCeMCE6HiQsIyel9KQySStiyqNl2tnj2mP3DX1Nf56MD6KMenNNlBBsy3LJ7gUEQPXQ==}
+
   '@types/cookie@0.6.0':
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
 
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
+
+  '@types/jsonwebtoken@9.0.7':
+    resolution: {integrity: sha512-ugo316mmTYBl2g81zDFnZ7cfxlut3o+/EQdaP7J8QN2kY6lJ22hmQYCK5EHcJHbrW+dkCGSCPgbG8JtYj6qSrg==}
 
   '@types/node@22.10.2':
     resolution: {integrity: sha512-Xxr6BBRCAOQixvonOye19wnzyDiUtTeqldOOmj3CkeblonbccA12PFwlufvRdrpjXxqnmUaeiU5EOA+7s5diUQ==}
@@ -757,18 +772,19 @@ packages:
   devalue@5.1.1:
     resolution: {integrity: sha512-maua5KUiapvEwiEAe+XnlZ3Rh0GD+qI1J/nb9vrJc3muPXvcF/8gXYTWF76+5DAqHyDUtOIImEuo0YKE9mshVw==}
 
-  drizzle-kit@0.22.8:
-    resolution: {integrity: sha512-VjI4wsJjk3hSqHSa3TwBf+uvH6M6pRHyxyoVbt935GUzP9tUR/BRZ+MhEJNgryqbzN2Za1KP0eJMTgKEPsalYQ==}
+  drizzle-kit@0.30.1:
+    resolution: {integrity: sha512-HmA/NeewvHywhJ2ENXD3KvOuM/+K2dGLJfxVfIHsGwaqKICJnS+Ke2L6UcSrSrtMJLJaT0Im1Qv4TFXfaZShyw==}
     hasBin: true
 
-  drizzle-orm@0.33.0:
-    resolution: {integrity: sha512-SHy72R2Rdkz0LEq0PSG/IdvnT3nGiWuRk+2tXZQ90GVq/XQhpCzu/EFT3V2rox+w8MlkBQxifF8pCStNYnERfA==}
+  drizzle-orm@0.38.3:
+    resolution: {integrity: sha512-w41Y+PquMpSff/QDRGdItG0/aWca+/J3Sda9PPGkTxBtjWQvgU1jxlFBXdjog5tYvTu58uvi3PwR1NuCx0KeZg==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
-      '@cloudflare/workers-types': '>=3'
-      '@electric-sql/pglite': '>=0.1.1'
-      '@libsql/client': '*'
-      '@neondatabase/serverless': '>=0.1'
+      '@cloudflare/workers-types': '>=4'
+      '@electric-sql/pglite': '>=0.2.0'
+      '@libsql/client': '>=0.10.0'
+      '@libsql/client-wasm': '>=0.10.0'
+      '@neondatabase/serverless': '>=0.10.0'
       '@op-engineering/op-sqlite': '>=2'
       '@opentelemetry/api': ^1.4.1
       '@planetscale/database': '>=1'
@@ -782,7 +798,7 @@ packages:
       '@xata.io/client': '*'
       better-sqlite3: '>=7'
       bun-types: '*'
-      expo-sqlite: '>=13.2.0'
+      expo-sqlite: '>=14.0.0'
       knex: '*'
       kysely: '*'
       mysql2: '>=2'
@@ -800,6 +816,8 @@ packages:
       '@electric-sql/pglite':
         optional: true
       '@libsql/client':
+        optional: true
+      '@libsql/client-wasm':
         optional: true
       '@neondatabase/serverless':
         optional: true
@@ -1151,6 +1169,8 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
 
+  '@drizzle-team/brocli@0.10.2': {}
+
   '@esbuild-kit/core-utils@3.3.2':
     dependencies:
       esbuild: 0.18.20
@@ -1388,10 +1408,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@libsql/client@0.9.0':
+  '@libsql/client@0.14.0':
     dependencies:
-      '@libsql/core': 0.9.0
-      '@libsql/hrana-client': 0.6.2
+      '@libsql/core': 0.14.0
+      '@libsql/hrana-client': 0.7.0
       js-base64: 3.7.7
       libsql: 0.4.7
       promise-limit: 2.7.0
@@ -1399,7 +1419,7 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  '@libsql/core@0.9.0':
+  '@libsql/core@0.14.0':
     dependencies:
       js-base64: 3.7.7
 
@@ -1409,9 +1429,9 @@ snapshots:
   '@libsql/darwin-x64@0.4.7':
     optional: true
 
-  '@libsql/hrana-client@0.6.2':
+  '@libsql/hrana-client@0.7.0':
     dependencies:
-      '@libsql/isomorphic-fetch': 0.2.5
+      '@libsql/isomorphic-fetch': 0.3.1
       '@libsql/isomorphic-ws': 0.1.5
       js-base64: 3.7.7
       node-fetch: 3.3.2
@@ -1419,7 +1439,7 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  '@libsql/isomorphic-fetch@0.2.5': {}
+  '@libsql/isomorphic-fetch@0.3.1': {}
 
   '@libsql/isomorphic-ws@0.1.5':
     dependencies:
@@ -1550,9 +1570,15 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@types/bcryptjs@2.4.6': {}
+
   '@types/cookie@0.6.0': {}
 
   '@types/estree@1.0.6': {}
+
+  '@types/jsonwebtoken@9.0.7':
+    dependencies:
+      '@types/node': 22.10.2
 
   '@types/node@22.10.2':
     dependencies:
@@ -1598,17 +1624,18 @@ snapshots:
 
   devalue@5.1.1: {}
 
-  drizzle-kit@0.22.8:
+  drizzle-kit@0.30.1:
     dependencies:
+      '@drizzle-team/brocli': 0.10.2
       '@esbuild-kit/esm-loader': 2.6.5
       esbuild: 0.19.12
       esbuild-register: 3.6.0(esbuild@0.19.12)
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.33.0(@libsql/client@0.9.0):
+  drizzle-orm@0.38.3(@libsql/client@0.14.0):
     optionalDependencies:
-      '@libsql/client': 0.9.0
+      '@libsql/client': 0.14.0
 
   ecdsa-sig-formatter@1.0.11:
     dependencies:

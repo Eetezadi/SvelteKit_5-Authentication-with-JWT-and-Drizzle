@@ -1,21 +1,21 @@
-import {fail, redirect} from "@sveltejs/kit";
-import {setAuthToken} from "../helpers.js";
-import {createUser} from "../../../../prisma/user.js";
+import { fail, redirect } from '@sveltejs/kit';
+import { setAuthToken } from '../setAuthToken';
+import { createUser } from '$lib/server/user';
 
 export const actions = {
-  register:  async ({cookies, request}) => {
-    const formData = Object.fromEntries(await request.formData());
-    const {email, password} = formData;
+	register: async ({ cookies, request }) => {
+		const formData = Object.fromEntries(await request.formData());
+		const { email, password } = formData;
 
-    const {error, token} = await createUser(email, password);
+		const { error, token } = await createUser(email, password);
 
-    if (error) {
-      console.log({error});
-      return fail(500, {error});
-    }
+		if (error) {
+			console.log({ error });
+			return fail(500, { error });
+		}
 
-    setAuthToken({cookies, token});
+		setAuthToken({ cookies, token });
 
-    throw  redirect(302, "/user-auth");
-  }
-}
+		throw redirect(302, '/user-auth');
+	}
+};

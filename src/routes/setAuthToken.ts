@@ -1,4 +1,4 @@
-function setAuthToken ({cookies, token}) {
+export function setAuthToken ({cookies, token}) {
   cookies.set('AuthorizationToken', `Bearer ${token}`, {
     httpOnly: true,
     secure: true,
