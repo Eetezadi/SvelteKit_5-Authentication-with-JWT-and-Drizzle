@@ -8,6 +8,6 @@ export const load = async ({locals}) => {
 export const actions = {
   logout: async ({cookies}) => {
     cookies.delete("AuthorizationToken");
-    throw  redirect(302, "/user-auth");
+    throw  redirect(302, "/");
   }
 }
