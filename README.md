@@ -1,6 +1,6 @@
-# SvelteKit Authentication example using JWT and Prisma
+# SvelteKit 5 JWT Authentication example using Drizzle
 
-Article: https://www.alex-stewart.dev/blog/user-authentication-in-sveltekit-with-jwt
+Forked, updated and changed from original article: https://www.alex-stewart.dev/blog/user-authentication-in-sveltekit-with-jwt
 
 ### Installation
 
