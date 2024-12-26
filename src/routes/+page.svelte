@@ -1,5 +1,5 @@
 <h1>
-    Alex Stewart's Blog Code Repo
+    SvelteKit 5 JWT Authentication Demo
 </h1>
 
 <nav>
