@@ -25,7 +25,7 @@ export async function createUser(username: string, email: string, password: stri
 
 		return { token };
 	} catch (error) {
-		return error;
+		throw error;
 	}
 }
 

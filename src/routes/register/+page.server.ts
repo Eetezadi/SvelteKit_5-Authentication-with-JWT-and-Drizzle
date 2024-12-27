@@ -5,17 +5,18 @@ import { createUser } from '$lib/server/userManagement';
 export const actions = {
 	register: async ({ cookies, request }) => {
 		const formData = Object.fromEntries(await request.formData());
-		const { username, email, password } = formData;
+		const username = formData.username as string;
+		const email = formData.email as string;
+		const password = formData.password as string;
 
-		const { error, token } = await createUser(username, email, password);
+		try {
+			const { token } = await createUser(username, email, password);
 
-		if (error) {
-			console.log({ error });
-			return fail(500, { error });
+			setAuthToken({ cookies, token });
+
+			throw redirect(302, '/');
+		} catch (error) {
+			throw error;
 		}
-
-		setAuthToken({ cookies, token });
-
-		throw redirect(302, '/');
 	}
 };
