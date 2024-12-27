@@ -1,7 +1,8 @@
-import { redirect } from '@sveltejs/kit';
 
-export const load = async ({ locals }) => {
-  if (!locals.user) {
-    throw redirect(302, '/login'); // Redirect to login if not authenticated
-  }
+// Important to force loading of the hook for route protection
+export const load = async () => {
+
+    // Add servver side logic here
+
+    return {};
 };

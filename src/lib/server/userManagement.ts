@@ -70,6 +70,33 @@ export async function loginUser(username: string, password: string) {
 	}
 }
 
+// Returns user or null to be used in hooks.server.ts
+export async function authenticateUser(authHeader?: string) {
+	if (!authHeader) return null;
+
+	// Expected format: "Bearer <token>"
+	const [scheme, token] = authHeader.split(' ');
+	if (scheme !== 'Bearer' || !token)  return null;
+
+	try {
+		const decoded = jwt.verify(token, JWT_ACCESS_SECRET) as { id: number } | undefined;
+		if (!decoded?.id) return null;
+
+		const [user] = await db
+			.select({
+				id: userTable.id,
+				email: userTable.email,
+				username: userTable.username
+			})
+			.from(userTable)
+			.where(eq(userTable.id, decoded.id));
+
+		return user;
+	} catch (err) {
+		return null;
+	}
+}
+
 function createJWT(user: UserWithoutPass) {
 	return jwt.sign({ id: user.id, name: user.username, email: user.email }, JWT_ACCESS_SECRET, {
 		expiresIn: '1d'

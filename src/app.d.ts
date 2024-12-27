@@ -1,9 +1,15 @@
-declare namespace App {
-	interface Locals {
+// src/app.d.ts
+declare global {
+	namespace App {
+	  interface Locals {
 		user?: {
-			id: number;
-			email: string;
-			username: string;
-		};
+		  id: number;
+		  email: string;
+		  username: string;
+		}
+	  }
 	}
-}
+  }
+  
+  export {};
+  

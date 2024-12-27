@@ -3,7 +3,7 @@ export function setAuthToken ({cookies, token}) {
     httpOnly: true,
     secure: true,
     sameSite: 'strict',
-    maxAge: 60 * 60 * 24,
+    maxAge: 60 * 60 * 24, // 1d
     path: '/'
   });
 };

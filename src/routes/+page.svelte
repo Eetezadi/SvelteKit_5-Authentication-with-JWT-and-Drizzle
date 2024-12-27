@@ -3,6 +3,7 @@
 	const user = data.user;
 </script>
 <h2>Main Menu</h2>
+
 {#if data?.user}
 	<h3>Logged in as user: {user?.username} ({user?.email})</h3>
 	<form method="POST" action="?/logout">

@@ -1,38 +1,28 @@
-import { JWT_ACCESS_SECRET } from '$env/static/private';
-import jwt from 'jsonwebtoken';
-import { db } from '$lib/server/db';
-import { eq } from 'drizzle-orm';
-import { userTable } from '$lib/server/db/schema';
 import { redirect } from '@sveltejs/kit';
+import { authenticateUser } from '$lib/server/userManagement';
 
 export const handle = async ({ event, resolve }) => {
+	
+	console.log('Hooking...');
+	
 	const authCookie = event.cookies.get('AuthorizationToken');
+	const user = await authenticateUser(authCookie); // returns null if no user or error
+	if (user) {
+		console.log('User found...'),
+		event.locals.user = user; // set user
+	}
 
-	if (authCookie) {
-		// Expected format: "Bearer <token>"
-		const [scheme, token] = authCookie.split(' ');
-		if (scheme === 'Bearer' && token) {
-			try {
-				const decoded = jwt.verify(token, JWT_ACCESS_SECRET) as { id: number };
+	// Make sure protectec routes contain a +page.server.ts to force server requests
+	const protectedRoutes = ['/admin']; // Add more protected paths if needed
+	const isProtected = protectedRoutes.some((route) => event.url.pathname.startsWith(route));
 
-				if (decoded?.id) {
-					const [user] = await db
-						.select({
-							id: userTable.id,
-							email: userTable.email,
-							username: userTable.username
-						})
-						.from(userTable)
-						.where(eq(userTable.id, decoded.id));
+	console.log('Current data:');
+	console.log(isProtected);
+	console.log(event.locals.user);
 
-					if (user) {
-						event.locals.user = user;
-					}
-				}
-			} catch (error) {
-				console.log(error);
-			}
-		}
+	if (isProtected && !event.locals.user) {
+		console.warn(`Unauthorized access attempt to ${event.url.pathname}`);
+		throw redirect(302, '/login');
 	}
 	return await resolve(event);
 };
