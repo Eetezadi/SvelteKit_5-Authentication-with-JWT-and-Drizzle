@@ -4,7 +4,15 @@ Forked, updated and changed from original article: https://www.alex-stewart.dev/
 
 ### Installation
 
-1. Clone the repository `git clone https://github.com/AlexStew14/SvelteKit-Authentication-with-JWT-and-Prisma.git`
+1. Clone the repository or open in Github Codespaces
 2. Install dependencies with `pnpm install`
 3. Generate DB with `pnpm db:push`
 4. Start the server with `pnpm dev`
+5. Explore and learn the code for your own implementation...
+
+### Changes
+* Updated to Svelte 5 and Runes
+* Using Drizzle ORM instead of Prisma
+* Accepts username or email for login
+* Refactoring of the Code...maybe better, maybe worse ;)
+* Added Pico CSS for a little colors
