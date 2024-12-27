@@ -2,11 +2,20 @@
 	let { children } = $props();
 </script>
 
-<h1>SvelteKit 5 JWT User Auth Demo</h1>
+<header>
+	<h1>SvelteKit 5 JWT User Auth Demo</h1>
+	<nav>
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/admin">Admin Dashboard</a></li>
+			<li><a href="/login">Login</a></li>
+		</ul>
+		<ul>
+			<li><a href="/register">Register</a></li>
+		</ul>
+	</nav>
+</header>
 
-<a href="/">Main Menu</a>
-<a href="/admin">Admin Dashboard</a>
-<a href="/login">Login</a>
-<a href="/register">Register</a>
-
-{@render children()}
+<main>
+	{@render children()}
+</main>
