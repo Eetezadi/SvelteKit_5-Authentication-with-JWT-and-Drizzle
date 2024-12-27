@@ -1,18 +1,10 @@
 import { JWT_ACCESS_SECRET } from '$env/static/private';
 import { db } from './db';
-import { eq } from 'drizzle-orm';
+import { eq, or } from 'drizzle-orm';
 import { userTable } from './db/schema';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-interface UserWithoutPass {
-	id: Number;
-	username: String;
-	email: String;
-}
-interface UserWithPass extends UserWithoutPass {
-	password: String;
-}
 
 export async function createUser(username: string, email: string, password: string) {
 	try {
@@ -37,7 +29,7 @@ export async function createUser(username: string, email: string, password: stri
 	}
 }
 
-export async function loginUser(username: string, password: string) {
+export async function loginUser(userIdent: string, password: string) {
 	try {
 		const [user] = await db
 			.select({
@@ -47,7 +39,7 @@ export async function loginUser(username: string, password: string) {
 				password: userTable.password
 			})
 			.from(userTable)
-			.where(eq(userTable.username, username));
+			.where(or(eq(userTable.username, userIdent), eq(userTable.email, userIdent)));
 
 		if (!user) {
 			return { error: 'User not found' };
@@ -76,7 +68,7 @@ export async function authenticateUser(authHeader?: string) {
 
 	// Expected format: "Bearer <token>"
 	const [scheme, token] = authHeader.split(' ');
-	if (scheme !== 'Bearer' || !token)  return null;
+	if (scheme !== 'Bearer' || !token) return null;
 
 	try {
 		const decoded = jwt.verify(token, JWT_ACCESS_SECRET) as { id: number } | undefined;
@@ -97,6 +89,11 @@ export async function authenticateUser(authHeader?: string) {
 	}
 }
 
+interface UserWithoutPass {
+	id: Number;
+	username: String;
+	email: String;
+}
 function createJWT(user: UserWithoutPass) {
 	return jwt.sign({ id: user.id, name: user.username, email: user.email }, JWT_ACCESS_SECRET, {
 		expiresIn: '1d'

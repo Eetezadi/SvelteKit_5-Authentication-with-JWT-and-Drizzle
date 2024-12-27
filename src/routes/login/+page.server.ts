@@ -5,9 +5,10 @@ import { loginUser } from '$lib/server/userManagement.js';
 export const actions = {
 	login: async ({ cookies, request }) => {
 		const formData = Object.fromEntries(await request.formData());
-		const { username, password } = formData;
+		const userIdent = formData.userIdent as string;
+		const password = formData.password as string;
 
-		const { error, token } = await loginUser(username, password);
+		const { error, token } = await loginUser(userIdent, password);
 
 		if (error) {
 			return fail(500, { error });
